@@ -64,19 +64,19 @@ async function displayWeather(weather, container) {
     temp.classList.add('weather-card__temp--big');
 
     if (weather) {
-      temp.textContent = `${Math.round(weather.temp_celcius)}C`
+      temp.textContent = `${Math.round(weather.temp_celsius)}C`
     }
 
     const low = document.createElement('p');
     low.classList.add('weather-card__temp--small');
     if (weather) {
-      low.textContent = `${Math.round(weather.temp_min_celcius)}C`;
+      low.textContent = `${Math.round(weather.temp_min_celsius)}C`;
     }
 
     const high = document.createElement('p');
     high.classList.add('weather-card__temp--small');
     if (weather) {
-      high.textContent = `${Math.round(weather.temp_max_celcius)}C`;
+      high.textContent = `${Math.round(weather.temp_max_celsius)}C`;
     }
 
 
@@ -95,6 +95,19 @@ async function displayOutputWeather(weather) {
   await displayWeather(weather, '.main__output');
 }
 
+const weatherForm = document.getElementById("weatherForm");
+
+async function getWeatherByLocation(event){
+    event.preventDefault();
+    const locationInput = event.target.location_name;
+    const locationName = locationInput.value
+    const getLongLat = await geoAPI.getUserLocationByCity(locationName);
+
+    console.log(getLongLat);
+
+    const getWeather = await weatherAPI.getWeatherByLocation(getLongLat.longitude, getLongLat.latitude);
+    displayOutputWeather(getWeather);   
+}
 
 // display current weather:
 const userLocation = await geoAPI.getUserLocationByIP(); //uncomment for demo
@@ -103,6 +116,6 @@ const weatherInfo = await weatherAPI.getWeatherByLocation(userLocation.longitude
 // await displayCurrentWeather(weather);
 await displayCurrentWeather(weatherInfo);
 
+weatherForm.addEventListener("submit", getWeatherByLocation)
 // make output weather placeholder
 displayOutputWeather();
-
