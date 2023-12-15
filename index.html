@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="./scripts/displayWeather.js" defer></script>
     <title>Weather Boss</title>
     <link rel="stylesheet" href="./styles/index.css">
 </head>
@@ -27,7 +29,9 @@
             <button class="main__input-button">CLICK ME TO RETREIVE WEATHER AT THE INTERNATIONAL SPACE STATION</button>
         </section>
         <section class="main__output">
-
+        <div class="weather__background">
+            <div class="weather-card"></div>
+        </div>
         </section>
     </main>
     <footer class="footer">
