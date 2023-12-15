@@ -10,19 +10,12 @@
     justify-content: center;
     align-items: center;
 
-    @include tablet {
-        padding: 24px;
-        justify-content: flex-start;
-    }
-
-    @include desktop {
-        padding: 36px;
-    }
-
     &__title {
         font-weight: 400;
         font-size: 25px;
         font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+        padding: 12px;
 
         @include tablet {
             font-size: 30px;
@@ -182,6 +175,7 @@
 
     &__gif {
         width: 100%;
+        height: 40%;
     }
 
     &__left {
@@ -190,7 +184,7 @@
         padding: 16px;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: center;
     }
 
     &__description {
@@ -248,6 +242,51 @@
     background-color: $primary-color-three;
     width: 100%;
     height: 10vh;
+    display: flex;
+    align-items: center;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    font-size: 10px;
+    width: 50%;
+
+    &__title {
+        color: $secondary-color-three;
+    }
+
+    &__members {
+        display: flex;
+        flex-direction: column;
+
+        &-link {
+            text-decoration: none;
+            color: $secondary-color-three;
+        }
+    }
+}
+
+.citation {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    font-size: 10px;
+    width: 50%;
+
+    &__title {
+        color: $secondary-color-three;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+
+        &-object {
+            color: $secondary-color-three;
+        }
+    }
 }
 
 
