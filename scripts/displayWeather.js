@@ -15,7 +15,7 @@ async function displayWeather(weather, container) {
 
     // background
     const weatherPic = document.createElement('div');
-    weatherPic.classList.add('.weather__background');
+    weatherPic.classList.add('weather__background');
     if (weather) {
       // const image = await unsplashApi.getImage(weather.weather[0].main); // uncomment for demo
       // const image = await unsplashApi.getImage(weather.weather); // uncomment for demo
@@ -25,7 +25,7 @@ async function displayWeather(weather, container) {
 
     // card
     const weatherCard = document.createElement('div');
-    weatherCard.classList.add('.weather-card')
+    weatherCard.classList.add('weather-card')
     weatherPic.appendChild(weatherCard);
 
     // left and right divs
@@ -64,19 +64,19 @@ async function displayWeather(weather, container) {
     temp.classList.add('weather-card__temp--big');
 
     if (weather) {
-      temp.textContent = `${Math.round(weather.temp_celcius)}C`
+      temp.textContent = `${Math.round(weather.temp_celsius)}°C`
     }
 
     const low = document.createElement('p');
     low.classList.add('weather-card__temp--small');
     if (weather) {
-      low.textContent = `${Math.round(weather.temp_min_celcius)}C`;
+      low.textContent = `MIN TEMP: ${Math.round(weather.temp_min_celsius)}°C`;
     }
 
     const high = document.createElement('p');
     high.classList.add('weather-card__temp--small');
     if (weather) {
-      high.textContent = `${Math.round(weather.temp_max_celcius)}C`;
+      high.textContent = `MAX TEMP: ${Math.round(weather.temp_max_celsius)}°C`;
     }
 
 
