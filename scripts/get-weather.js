@@ -15,9 +15,19 @@ async function getWeatherByLocation(event){
     console.log(getLongLat);
 
     const getWeather = await weatherInst.getWeatherByLocation(getLongLat.longitude, getLongLat.latitude);
-
-    console.log(getWeather);
+    displayWeather(getWeather);   
 }
 
+function displayWeather(weatherObj){
+    //TODO:eplace with the code written by Maria
+    const cityEl = document.querySelector("#cityWeather");
+    const tempFahrenheitEl = document.getElementById("tempFahrenheit");
+    const tempCelsiusEl = document.getElementById("tempCelsius");
+    
+    cityEl.textContent = weatherObj.weather;
+    tempCelsiusEl.prepend(weatherObj.temp_celsius);
+    tempFahrenheitEl.prepend(weatherObj.temp_fahrenheit);
+}
 
 weatherForm.addEventListener("submit", getWeatherByLocation)
+//displayWeather();
