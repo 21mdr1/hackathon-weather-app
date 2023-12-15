@@ -1,18 +1,25 @@
 import unsplashApi from "./unsplashApi.js";
 import giphyApi from "./giphyApi.js";
-import weatherInstance from './weather-api.js'
+import showsInstance from './weather-api.js'
 import geoAPI from "./geolocation-api.js";
 import {weather, image, gif} from './testData.js'
 
-export default async function displayWeather(weather) {
-    //background
-    const weatherPic = document.querySelector('.weather__background');
+async function displayWeather(weather, container) {
+
+    const weatherContainer = document.querySelector(container);
+    weatherContainer.innerHTML = '';
+
+    // background
+    const weatherPic = document.createElement('div');
+    weatherPic.classList.add('.weather__background');
     // const image = await unsplashApi.getImage(weather.weather[0].main); // uncomment for demo
     weatherPic.style.backgroundImage = `url(${image.results[0].urls.regular})` // unsplash response
+    weatherContainer.appendChild(weatherPic);
 
-
-    const weatherCard = document.querySelector('.weather-card');
-    weatherCard.innerHTML = '';
+    // card
+    const weatherCard = document.createElement('div');
+    weatherCard.classList.add('.weather-card')
+    weatherPic.appendChild(weatherCard);
 
     // left and right divs
     const left = document.createElement('div');
@@ -57,5 +64,13 @@ export default async function displayWeather(weather) {
 
 }
 
+async function displayCurrentWeather(weather) {
+  await displayWeather(weather, '.weather');
+}
 
-await displayWeather(weather);
+async function displayOutputWeather(weather) {
+  await displayWeather(weather, '.main__output');
+}
+
+
+await displayCurrentWeather(weather);

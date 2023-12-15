@@ -26,12 +26,12 @@ class WeatherApi{
 }
 
 
-const weatherInstance = new WeatherApi();
+const showsInstance = new WeatherApi();
 
-export default weatherInstance;
+export default showsInstance;
 
 async function testFunctions () {
-    const weather = showsInstance.getWeatherByLocation(); 
+    const weather = await showsInstance.getWeatherByLocation(); 
 }
 
 testFunctions();
