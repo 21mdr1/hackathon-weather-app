@@ -79,6 +79,3 @@ async function displayOutputWeather(weather) {
 // console.log(weatherInfo); // uncomment for demo
 await displayCurrentWeather(weather);
 // await displayCurrentWeather(weatherInfo);
-
-// will eventually be in an event handler
-await displayOutputWeather(weather);
