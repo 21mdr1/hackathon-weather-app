@@ -21,7 +21,7 @@ class WeatherApi{
         }
         // console.log(weatherResponse);
         console.log(locationWeather);
-        return locationWeatherData;
+        return locationWeather;
     }
 }
 
