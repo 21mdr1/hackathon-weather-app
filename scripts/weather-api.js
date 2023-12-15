@@ -30,12 +30,12 @@ class WeatherApi{
         }        
     }
 
-export default showsInstance;
+// export default showsInstance;
 
     celsiusToFahrenheit(temperature){
         return Math.floor((temperature * 9/5) + 32);
     }
 }
 
-// export default WeatherApi;
+export default WeatherApi;
 

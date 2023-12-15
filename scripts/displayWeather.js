@@ -1,9 +1,12 @@
 import unsplashApi from "./unsplashApi.js";
 import giphyApi from "./giphyApi.js";
 
-import showsInstance from './weather-api.js'
-import geoAPI from "./geolocation-api.js";
+import WeatherApi from './weather-api.js'
+import GeoLocationApi from "./geolocation-api.js";
 import {weather, image, gif} from './testData.js'
+
+const geoAPI = new GeoLocationApi();
+const weatherAPI = new WeatherApi ();
 
 async function displayWeather(weather, container) {
 
@@ -95,7 +98,7 @@ async function displayOutputWeather(weather) {
 
 // display current weather:
 const userLocation = await geoAPI.getUserLocationByIP(); //uncomment for demo
-const weatherInfo = await showsInstance.getWeatherByLocation(userLocation.longitude, userLocation.latitude); //uncomment for demo
+const weatherInfo = await weatherAPI.getWeatherByLocation(userLocation.longitude, userLocation.latitude); //uncomment for demo
 // console.log(weatherInfo);
 // await displayCurrentWeather(weather);
 await displayCurrentWeather(weatherInfo);
