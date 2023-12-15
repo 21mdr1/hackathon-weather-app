@@ -12,7 +12,6 @@ class WeatherApi{
         try {
             const weatherResponse = await axios.get(URL);
             const locationWeatherData = weatherResponse.data;
-
             const locationWeather = {
                 temp_celsius:Math.floor(locationWeatherData.main.temp), //Math.floor(data.main.temp - KELVIN)
                 temp_max_celsius : Math.floor(locationWeatherData.main.temp_max),
