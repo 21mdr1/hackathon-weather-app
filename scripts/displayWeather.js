@@ -105,6 +105,8 @@ async function getWeatherByLocation(event){
     console.log(getLongLat);
 
     const getWeather = await weatherAPI.getWeatherByLocation(getLongLat.longitude, getLongLat.latitude);
+
+    locationInput.value = '';
     displayOutputWeather(getWeather);   
 }
 
