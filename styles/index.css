@@ -93,6 +93,23 @@
     justify-content: center;
   }
 }
+.main__input-button {
+  background-color: #CB9392;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+}
+@media (min-width: 48rem) {
+  .main__input-button {
+    padding: 48px 24px;
+    font-size: 16px;
+  }
+}
+.main__input-button:hover {
+  background-color: #946A69;
+}
 .main__form {
   display: flex;
   flex-direction: column;
