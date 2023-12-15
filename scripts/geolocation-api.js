@@ -33,7 +33,9 @@ class GeoLocationApi{
 
             const location = {
                 latitude: cityData.lat,
-                longitude: cityData.lon
+                longitude: cityData.lon,
+                city: cityData.city,
+                country: cityData.country
             }
             
             return location;
