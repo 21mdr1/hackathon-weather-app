@@ -2,7 +2,6 @@ class WeatherApi{
     constructor(){
         this.apiKey = '9942044972537819a9cb8813eb5d8edf';
         this.baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
-
     }
 
 
@@ -30,9 +29,11 @@ class WeatherApi{
         }        
     }
 
+export default showsInstance;
+
     celsiusToFahrenheit(temperature){
         return Math.floor((temperature * 9/5) + 32);
     }
 }
 
-export default WeatherApi;
+// export default WeatherApi;
