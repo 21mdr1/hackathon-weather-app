@@ -22,7 +22,8 @@ class WeatherApi{
                 temp_min_fahrenheit: this.celsiusToFahrenheit(locationWeatherData.main.temp_min)
 
             }
-            //console.log(weatherResponse);
+            
+            //console.log(locationWeather);
             return locationWeather;
         } catch (error) {
             console.log(error)
