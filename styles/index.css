@@ -34,19 +34,19 @@
   }
 }
 
-.weather {
+.weather, .main__output {
   display: flex;
   justify-content: center;
   width: 100%;
   height: 30vh;
 }
 @media (min-width: 48rem) {
-  .weather {
+  .weather, .main__output {
     justify-content: center;
     margin-top: 24px;
   }
 }
-.weather__background {
+.weather__background, .main__output__background {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +54,7 @@
   background-size: cover;
 }
 @media (min-width: 80rem) {
-  .weather {
+  .weather, .main__output {
     max-width: 1280px;
     margin: auto;
   }
