@@ -40,6 +40,7 @@ class GeoLocationApi{
 
 
 const geoAPI = new GeoLocationApi()
+export default geoAPI;
 
 async function testFunctions(){
     const location = await geoAPI.getUserLocationByIP();

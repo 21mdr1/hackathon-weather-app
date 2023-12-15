@@ -1,5 +1,7 @@
 import unsplashApi from "./unsplashApi.js";
 import giphyApi from "./giphyApi.js";
+import weatherInstance from './weather-api.js'
+import geoAPI from "./geolocation-api.js";
 
 // we get weather in the form:
 
@@ -602,7 +604,7 @@ export default async function displayWeather(weather) {
     // add to left side
     const weatherGif = document.createElement('img');
     weatherGif.classList.add('weather-card__gif')
-    //const gif = 
+    // const gif = await giphyApi.getGifs(weather.weather[0].main); //uncomment for demo
     weatherGif.src = gif.data[0].images.original.url // giphy response
 
     weatherGif.alt = `${weather.weather[0].main} gif`
