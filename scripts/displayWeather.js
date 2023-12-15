@@ -71,13 +71,13 @@ async function displayWeather(weather, container) {
     const low = document.createElement('p');
     low.classList.add('weather-card__temp--small');
     if (weather) {
-      low.textContent = `Min temp: ${Math.round(weather.temp_min_celsius)}°C`;
+      low.textContent = `MIN TEMP: ${Math.round(weather.temp_min_celsius)}°C`;
     }
 
     const high = document.createElement('p');
     high.classList.add('weather-card__temp--small');
     if (weather) {
-      high.textContent = `Max temp: ${Math.round(weather.temp_max_celsius)}°C`;
+      high.textContent = `MAX TEMP: ${Math.round(weather.temp_max_celsius)}°C`;
     }
 
 
@@ -120,7 +120,7 @@ await displayCurrentWeather(weather);
 
 weatherForm.addEventListener("submit", getWeatherByLocation)
 // make output weather placeholder
-displayOutputWeather();
+//displayOutputWeather();
 
 const issButton = document.querySelector('.main__input-button')
 

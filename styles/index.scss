@@ -14,6 +14,8 @@
         font-weight: 400;
         font-size: 25px;
         font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+        padding: 12px;
 
         @include tablet {
             font-size: 30px;
@@ -173,6 +175,7 @@
 
     &__gif {
         width: 100%;
+        height: 40%;
     }
 
     &__left {
@@ -181,7 +184,7 @@
         padding: 16px;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: center;
     }
 
     &__description {
@@ -240,19 +243,24 @@
     width: 100%;
     height: 10vh;
     display: flex;
+
 }
 
 .project {
     display: flex;
     flex-direction: column;
+
     justify-content: flex-start;
     align-items: center;
+
     padding: 16px;
     font-size: 10px;
     width: 50%;
 
     &__title {
+
         // color: $secondary-color-three;
+
     }
 
     &__members {
@@ -261,7 +269,9 @@
 
         &-link {
             text-decoration: none;
+
             color: #000000;
+
         }
     }
 }
@@ -269,14 +279,18 @@
 .citation {
     display: flex;
     flex-direction: column;
+
     justify-content: flex-start;
     align-items: center;
+
     padding: 16px;
     font-size: 10px;
     width: 50%;
 
     &__title {
+
         // color: $secondary-color-three;
+
     }
 
     &__container {
@@ -284,7 +298,10 @@
         flex-direction: column;
 
         &-object {
+
             // color: $secondary-color-three;
+
+
         }
     }
 }
