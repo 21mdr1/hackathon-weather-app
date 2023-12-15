@@ -13,7 +13,6 @@ class GeoLocationApi{
                 latitude: locationData.location.latitude,
                 longitude: locationData.location.longitude
             }
-            console.log(location);
             return location;
         } catch (error) {
             //handle error
@@ -23,9 +22,8 @@ class GeoLocationApi{
     }
 
 
-    async getUserLocationByCity(cityName=""){
-        const citytName = "Berlin";
-        const userLocationResponse =  await axios.get(`${this.baseUrl}/geocode/search?text="${citytName}"&limit=1&type=city&format=json&apiKey=${this.apiKey}`);
+    async getUserLocationByCity(cityName){
+        const userLocationResponse =  await axios.get(`${this.baseUrl}/geocode/search?text="${cityName}"&limit=1&type=city&format=json&apiKey=${this.apiKey}`);
         
         const cityData = userLocationResponse.data.results[0];
 
@@ -34,17 +32,8 @@ class GeoLocationApi{
             longitude: cityData.lon
         }
         
-        console.log(location);
+        return location;
     }
 }
 
-
-const geoAPI = new GeoLocationApi()
-
-async function testFunctions(){
-    const location = await geoAPI.getUserLocationByIP();
-    const longlat = await geoAPI.getUserLocationByCity();
-}
-
-testFunctions();
-
+export default GeoLocationApi;

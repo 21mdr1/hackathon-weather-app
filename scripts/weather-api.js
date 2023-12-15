@@ -20,16 +20,9 @@ class WeatherApi{
             weather: locationWeatherData.weather[0].description
 
         }
-        console.log(weatherResponse);
-        console.log(locationWeather);
+        //console.log(weatherResponse);
+        //console.log(locationWeather);
     }
 }
 
-
-const showsInstance = new WeatherApi();
-
-async function testFunctions () {
-    const weather = showsInstance.getWeatherByLocation(); 
-}
-
-testFunctions();
+export default WeatherApi;
