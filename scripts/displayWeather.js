@@ -12,8 +12,10 @@ async function displayWeather(weather, container) {
     // background
     const weatherPic = document.createElement('div');
     weatherPic.classList.add('.weather__background');
-    // const image = await unsplashApi.getImage(weather.weather[0].main); // uncomment for demo
-    weatherPic.style.backgroundImage = `url(${image.results[0].urls.regular})` // unsplash response
+    if (weather) {
+      // const image = await unsplashApi.getImage(weather.weather[0].main); // uncomment for demo
+      weatherPic.style.backgroundImage = `url(${image.results[0].urls.regular})` // unsplash response
+    }
     weatherContainer.appendChild(weatherPic);
 
     // card
@@ -33,14 +35,20 @@ async function displayWeather(weather, container) {
     // add to left side
     const weatherGif = document.createElement('img');
     weatherGif.classList.add('weather-card__gif')
-    // const gif = await giphyApi.getGifs(weather.weather[0].main); //uncomment for demo
-    weatherGif.src = gif.data[0].images.original.url // giphy response
+    if (weather) {
+      // const gif = await giphyApi.getGifs(weather.weather[0].main); //uncomment for demo
+      weatherGif.src = gif.data[0].images.original.url // giphy response
+    }
 
-    weatherGif.alt = `${weather.weather[0].main} gif`
+    if (weather) {
+      weatherGif.alt = `${weather.weather[0].main} gif`
+    }
 
     const description = document.createElement('p');
     description.classList.add('weather-card__description')
-    description.textContent = weather.weather[0].description; // could also do .main
+    if (weather) {
+      description.textContent = weather.weather[0].description; // could also do .main
+    }
 
     left.appendChild(weatherGif);
     left.appendChild(description);
@@ -48,15 +56,21 @@ async function displayWeather(weather, container) {
     // add to right side
     const temp = document.createElement('p');
     temp.classList.add('weather-card__temp--big');
-    temp.textContent = `${Math.round(weather.main.temp)}C`
+    if (weather) {
+      temp.textContent = `${Math.round(weather.main.temp)}C`
+    }
 
     const low = document.createElement('p');
     low.classList.add('weather-card__temp--small');
-    low.textContent = `${Math.round(weather.main.temp_min)}C`;
+    if (weather) {
+      low.textContent = `${Math.round(weather.main.temp_min)}C`;
+    }
 
     const high = document.createElement('p');
     high.classList.add('weather-card__temp--small');
-    high.textContent = `${Math.round(weather.main.temp_max)}C`;
+    if (weather) {
+      high.textContent = `${Math.round(weather.main.temp_max)}C`;
+    }
 
     right.appendChild(temp);
     right.appendChild(low);
@@ -75,7 +89,10 @@ async function displayOutputWeather(weather) {
 
 // display current weather:
 // const userLocation = await geoAPI.getUserLocationByIP(); //uncomment for demo
-// const weatherInfo = await showsInstance.getWeatherByLocation(userLocation.longitude, userLocation.latitude);
+// const weatherInfo = await showsInstance.getWeatherByLocation(userLocation.longitude, userLocation.latitude); //uncomment for demo
 // console.log(weatherInfo); // uncomment for demo
 await displayCurrentWeather(weather);
 // await displayCurrentWeather(weatherInfo);
+
+// make output weather placeholder
+displayOutputWeather();
