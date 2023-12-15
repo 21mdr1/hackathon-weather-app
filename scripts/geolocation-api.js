@@ -13,7 +13,7 @@ class GeoLocationApi{
                 latitude: locationData.location.latitude,
                 longitude: locationData.location.longitude
             }
-            console.log(location);
+            // console.log(location);
             return location;
         } catch (error) {
             //handle error
@@ -42,10 +42,10 @@ class GeoLocationApi{
 const geoAPI = new GeoLocationApi()
 export default geoAPI;
 
-async function testFunctions(){
-    const location = await geoAPI.getUserLocationByIP();
-    const longlat = await geoAPI.getUserLocationByCity();
-}
+// async function testFunctions(){
+//     const location = await geoAPI.getUserLocationByIP();
+//     const longlat = await geoAPI.getUserLocationByCity();
+// }
 
-testFunctions();
+// testFunctions();
 

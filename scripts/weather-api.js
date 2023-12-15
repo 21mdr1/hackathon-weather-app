@@ -6,10 +6,9 @@ class WeatherApi{
 
 
     async getWeatherByLocation(longitude="", latitude=""){
-        longitude = -90.8640346;
-        latitude = 41.9048584;
-
-        const weatherResponse = await axios.get(`${this.baseUrl}?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}`);
+        // longitude = -90.8640346;
+        // latitude = 41.9048584;
+        const weatherResponse = await axios.get(`${this.baseUrl}?lat=${latitude}&lon=${longitude}&units=metric&appid=${this.apiKey}`);
 
         const locationWeatherData = weatherResponse.data;
 
@@ -20,8 +19,9 @@ class WeatherApi{
             weather: locationWeatherData.weather[0].description
 
         }
-        console.log(weatherResponse);
+        // console.log(weatherResponse);
         console.log(locationWeather);
+        return locationWeatherData;
     }
 }
 
@@ -30,8 +30,8 @@ const showsInstance = new WeatherApi();
 
 export default showsInstance;
 
-async function testFunctions () {
-    const weather = await showsInstance.getWeatherByLocation(); 
-}
+// async function testFunctions () {
+//     const weather = await showsInstance.getWeatherByLocation(); 
+// }
 
-testFunctions();
+// testFunctions();

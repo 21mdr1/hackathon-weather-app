@@ -48,15 +48,15 @@ async function displayWeather(weather, container) {
     // add to right side
     const temp = document.createElement('p');
     temp.classList.add('weather-card__temp--big');
-    temp.textContent = Math.round(weather.main.temp)
+    temp.textContent = `${Math.round(weather.main.temp)}C`
 
     const low = document.createElement('p');
     low.classList.add('weather-card__temp--small');
-    low.textContent = Math.round(weather.main.temp_min);
+    low.textContent = `${Math.round(weather.main.temp_min)}C`;
 
     const high = document.createElement('p');
     high.classList.add('weather-card__temp--small');
-    high.textContent = Math.round(weather.main.temp_max);
+    high.textContent = `${Math.round(weather.main.temp_max)}C`;
 
     right.appendChild(temp);
     right.appendChild(low);
@@ -73,4 +73,12 @@ async function displayOutputWeather(weather) {
 }
 
 
+// display current weather:
+// const userLocation = await geoAPI.getUserLocationByIP(); //uncomment for demo
+// const weatherInfo = await showsInstance.getWeatherByLocation(userLocation.longitude, userLocation.latitude);
+// console.log(weatherInfo); // uncomment for demo
 await displayCurrentWeather(weather);
+// await displayCurrentWeather(weatherInfo);
+
+// will eventually be in an event handler
+await displayOutputWeather(weather);
