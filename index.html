@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="./scripts/displayWeather.js" defer></script>
     <title>Weather Boss</title>
     <link rel="stylesheet" href="./styles/index.css">
 </head>
@@ -13,7 +15,6 @@
     <section class="weather">
         <div class="weather__background">
             <div class="weather-card"> 
-                <!-- should this be "weather__card" -->
             </div>
         </div>
     </section>
@@ -24,10 +25,12 @@
                 <input class="main__form-content" type="text" placeholder="NAME OF CITY">
                 <button class="main__form-button" type="submit">SUBMIT</button>
             </form>
-            <button class="main__input-button">CLICK ME TO RETREIVE WEATHER AT THE INTERNATIONAL SPACE STATION</button>
+      
         </section>
         <section class="main__output">
-
+        <div class="weather__background">
+            <div class="weather-card"></div>
+        </div>
         </section>
     </main>
     <footer class="footer">
