@@ -5,6 +5,7 @@ class WeatherApi{
     }
 
 
+
     async getWeatherByLocation(longitude, latitude){
         const URL = `${this.baseUrl}?lat=${latitude}&lon=${longitude}&units=metric&appid=${this.apiKey}`;
 
@@ -37,3 +38,4 @@ export default showsInstance;
 }
 
 // export default WeatherApi;
+

@@ -1,5 +1,6 @@
 import unsplashApi from "./unsplashApi.js";
 import giphyApi from "./giphyApi.js";
+
 import showsInstance from './weather-api.js'
 import geoAPI from "./geolocation-api.js";
 import {weather, image, gif} from './testData.js'
@@ -36,6 +37,7 @@ async function displayWeather(weather, container) {
     // add to left side
     const weatherGif = document.createElement('img');
     weatherGif.classList.add('weather-card__gif')
+
     if (weather) {
       // const gif = await giphyApi.getGifs(weather.weather); //uncomment for demo
       weatherGif.src = gif.data[0].images.original.url // giphy response
@@ -57,6 +59,7 @@ async function displayWeather(weather, container) {
     // add to right side
     const temp = document.createElement('p');
     temp.classList.add('weather-card__temp--big');
+
     if (weather) {
       temp.textContent = `${Math.round(weather.temp_celcius)}C`
     }
@@ -73,11 +76,13 @@ async function displayWeather(weather, container) {
       high.textContent = `${Math.round(weather.temp_max_celcius)}C`;
     }
 
+
     right.appendChild(temp);
     right.appendChild(low);
     right.appendChild(high);
 
 }
+
 
 async function displayCurrentWeather(weather) {
   await displayWeather(weather, '.weather');
@@ -97,3 +102,4 @@ await displayCurrentWeather(weatherInfo);
 
 // make output weather placeholder
 displayOutputWeather();
+

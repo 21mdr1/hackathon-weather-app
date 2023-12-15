@@ -13,6 +13,7 @@ class GeoLocationApi{
                 latitude: locationData.location.latitude,
                 longitude: locationData.location.longitude
             }
+
             // console.log(location);
             return location;
         } catch (error) {
@@ -21,6 +22,7 @@ class GeoLocationApi{
         }
         
     }
+
 
 
     async getUserLocationByCity(cityName){
@@ -53,3 +55,4 @@ export default geoAPI;
 
 // testFunctions();
 // export default GeoLocationApi;
+
