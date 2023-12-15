@@ -94,6 +94,19 @@ async function displayOutputWeather(weather) {
   await displayWeather(weather, '.main__output');
 }
 
+const weatherForm = document.getElementById("weatherForm");
+
+async function getWeatherByLocation(event){
+    event.preventDefault();
+    const locationInput = event.target.location_name;
+    const locationName = locationInput.value
+    const getLongLat = await geoAPI.getUserLocationByCity(locationName);
+
+    console.log(getLongLat);
+
+    const getWeather = await weatherAPI.getWeatherByLocation(getLongLat.longitude, getLongLat.latitude);
+    displayOutputWeather(getWeather);   
+}
 
 // display current weather:
 // const userLocation = await geoAPI.getUserLocationByIP(); //uncomment for demo
@@ -101,7 +114,7 @@ async function displayOutputWeather(weather) {
 await displayCurrentWeather(weather);
 // await displayCurrentWeather(weatherInfo);
 
+weatherForm.addEventListener("submit", getWeatherByLocation)
 // make output weather placeholder
+
 displayOutputWeather();
-
-
