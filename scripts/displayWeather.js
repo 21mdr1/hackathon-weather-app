@@ -4,9 +4,11 @@ import giphyApi from "./giphyApi.js";
 import WeatherApi from './weather-api.js'
 import GeoLocationApi from "./geolocation-api.js";
 import {weather, image, gif} from './testData.js'
+import ISSApi from "./issApi.js";
 
 const geoAPI = new GeoLocationApi();
 const weatherAPI = new WeatherApi ();
+const issAPI = new ISSApi();
 
 async function displayWeather(weather, container) {
 
@@ -118,5 +120,13 @@ await displayCurrentWeather(weather);
 
 weatherForm.addEventListener("submit", getWeatherByLocation)
 // make output weather placeholder
-
 displayOutputWeather();
+
+const issButton = document.querySelector('.main__input-button')
+
+issButton.addEventListener('click', async (event) => {
+  const location = await issAPI.getCoords();
+  const weather =  await weatherAPI.getWeatherByLocation(location.longitude, location.latitude);
+  displayOutputWeather(weather);
+})
+
