@@ -23,7 +23,7 @@
     }    
 }
 
-.weather {
+.weather,.main__output {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -38,8 +38,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    background-position: center;
-    background-size: cover;
+        background-position: center;
+        background-size: cover;
     }
 
 
@@ -78,9 +78,26 @@
             width: 50%;
             height: 100%;
             justify-content: center;
+        }
+        
+        &-button {
+            background-color: $secondary-color-two;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+
+            @include tablet {
+                padding: 48px 24px;
+                font-size: 16px;
+            }
+
+            &:hover {
+                background-color: #946A69;
             }
         }
-    
+    }
 
     &__form {
         display: flex;

@@ -4,9 +4,11 @@ import giphyApi from "./giphyApi.js";
 import WeatherApi from './weather-api.js'
 import GeoLocationApi from "./geolocation-api.js";
 import {weather, image, gif} from './testData.js'
+import ISSApi from "./issApi.js";
 
 const geoAPI = new GeoLocationApi();
 const weatherAPI = new WeatherApi ();
+const issAPI = new ISSApi();
 
 async function displayWeather(weather, container) {
 
@@ -17,7 +19,6 @@ async function displayWeather(weather, container) {
     const weatherPic = document.createElement('div');
     weatherPic.classList.add('weather__background');
     if (weather) {
-      // const image = await unsplashApi.getImage(weather.weather[0].main); // uncomment for demo
       // const image = await unsplashApi.getImage(weather.weather); // uncomment for demo
       weatherPic.style.backgroundImage = `url(${image.results[0].urls.regular})` // unsplash response
     }
@@ -95,14 +96,37 @@ async function displayOutputWeather(weather) {
   await displayWeather(weather, '.main__output');
 }
 
+const weatherForm = document.getElementById("weatherForm");
+
+async function getWeatherByLocation(event){
+    event.preventDefault();
+    const locationInput = event.target.location_name;
+    const locationName = locationInput.value
+    const getLongLat = await geoAPI.getUserLocationByCity(locationName);
+
+    console.log(getLongLat);
+
+    const getWeather = await weatherAPI.getWeatherByLocation(getLongLat.longitude, getLongLat.latitude);
+
+    locationInput.value = '';
+    displayOutputWeather(getWeather);   
+}
 
 // display current weather:
-const userLocation = await geoAPI.getUserLocationByIP(); //uncomment for demo
-const weatherInfo = await weatherAPI.getWeatherByLocation(userLocation.longitude, userLocation.latitude); //uncomment for demo
-// console.log(weatherInfo);
-// await displayCurrentWeather(weather);
-await displayCurrentWeather(weatherInfo);
+// const userLocation = await geoAPI.getUserLocationByIP(); //uncomment for demo
+// const weatherInfo = await weatherAPI.getWeatherByLocation(userLocation.longitude, userLocation.latitude); //uncomment for demo
+await displayCurrentWeather(weather);
+// await displayCurrentWeather(weatherInfo);
 
+weatherForm.addEventListener("submit", getWeatherByLocation)
 // make output weather placeholder
-displayOutputWeather();
+//displayOutputWeather();
+
+const issButton = document.querySelector('.main__input-button')
+
+issButton.addEventListener('click', async (event) => {
+  const location = await issAPI.getCoords();
+  const weather =  await weatherAPI.getWeatherByLocation(location.longitude, location.latitude);
+  displayOutputWeather(weather);
+})
 
