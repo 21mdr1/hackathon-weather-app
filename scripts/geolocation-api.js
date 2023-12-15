@@ -23,16 +23,22 @@ class GeoLocationApi{
 
 
     async getUserLocationByCity(cityName){
-        const userLocationResponse =  await axios.get(`${this.baseUrl}/geocode/search?text="${cityName}"&limit=1&type=city&format=json&apiKey=${this.apiKey}`);
-        
-        const cityData = userLocationResponse.data.results[0];
+        try {
+            const userLocationResponse =  await axios.get(`${this.baseUrl}/geocode/search?text="${cityName}"&limit=1&type=city&format=json&apiKey=${this.apiKey}`);
+            
+            const cityData = userLocationResponse.data.results[0];
 
-        const location = {
-            latitude: cityData.lat,
-            longitude: cityData.lon
+            const location = {
+                latitude: cityData.lat,
+                longitude: cityData.lon
+            }
+            
+            return location;
+            
+        } catch (error) {
+            //handle error
+            console.error(error);
         }
-        
-        return location;
     }
 }
 
