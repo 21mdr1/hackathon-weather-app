@@ -24,7 +24,7 @@ class GiphyApi {
     }
 }
 
-const giphyApi = new GiphyApi('QbFJVqBNmGUCniNIMUVNltFoZhQ6YmCd');
+const giphyApi = new GiphyApi(YOUR_API_KEY);
 
 
 export default giphyApi;

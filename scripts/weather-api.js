@@ -1,6 +1,6 @@
 class WeatherApi{
     constructor(){
-        this.apiKey = '9942044972537819a9cb8813eb5d8edf';
+        this.apiKey = YOUR_API_KEY;
         this.baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
     }
 
