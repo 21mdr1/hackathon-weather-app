@@ -1,6 +1,6 @@
 class GeoLocationApi{
     constructor(){
-        this.apiKey = "0b34fd20b8b94136826cb192ab879cff";
+        this.apiKey = YOUR_API_KEY;
         this.baseUrl = 'https://api.geoapify.com/v1/';
     }
 

@@ -19,7 +19,7 @@ async function displayWeather(weather, container) {
     const weatherPic = document.createElement('div');
     weatherPic.classList.add('weather__background');
     if (weather) {
-      // const image = await unsplashApi.getImage(weather.weather); // uncomment for demo
+      const image = await unsplashApi.getImage(weather.weather); // uncomment for demo
       weatherPic.style.backgroundImage = `url(${image.results[0].urls.regular})` // unsplash response
     }
     weatherContainer.appendChild(weatherPic);
@@ -43,7 +43,7 @@ async function displayWeather(weather, container) {
     weatherGif.classList.add('weather-card__gif')
 
     if (weather) {
-      // const gif = await giphyApi.getGifs(weather.weather); //uncomment for demo
+      const gif = await giphyApi.getGifs(weather.weather); //uncomment for demo
       weatherGif.src = gif.data[0].images.original.url // giphy response
     }
 
@@ -113,10 +113,10 @@ async function getWeatherByLocation(event){
 }
 
 // display current weather:
-// const userLocation = await geoAPI.getUserLocationByIP(); //uncomment for demo
-// const weatherInfo = await weatherAPI.getWeatherByLocation(userLocation.longitude, userLocation.latitude); //uncomment for demo
-await displayCurrentWeather(weather);
-// await displayCurrentWeather(weatherInfo);
+const userLocation = await geoAPI.getUserLocationByIP(); //uncomment for demo
+const weatherInfo = await weatherAPI.getWeatherByLocation(userLocation.longitude, userLocation.latitude); //uncomment for demo
+// await displayCurrentWeather(weather);
+await displayCurrentWeather(weatherInfo);
 
 weatherForm.addEventListener("submit", getWeatherByLocation)
 // make output weather placeholder

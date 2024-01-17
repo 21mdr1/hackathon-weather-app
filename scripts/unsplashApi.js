@@ -18,6 +18,6 @@ class UnsplashApi {
     }
 }
 
-const unsplashApi = new UnsplashApi('XAMoqskCKL5zNNnOEtQztfZSGS-xkXqoFYHwDVfI0ec');
+const unsplashApi = new UnsplashApi(YOUR_API_KEY);
 
 export default unsplashApi;
